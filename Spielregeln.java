@@ -1,11 +1,4 @@
 
-/**
- * Beschreiben Sie hier die Klasse Spielregeln.
- * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
- */
-public class Spielregeln
 // Spiel Hangman - Spielregeln
 // Gruppenarbeit Florian, Manuel, Maxi, Jacob
 

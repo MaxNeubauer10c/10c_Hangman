@@ -1,3 +1,4 @@
+// Spiel Hangman – Hauptprogrammklasse - Gruppenarbeit Florian, Manuel, Maxi, Jacob
 public class Hangman {
 // interne Unterklassen für Funktionalität:
 private static Woerterbuch woerterbuch; // zufälliges Wort ermitteln

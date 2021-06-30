@@ -1,24 +1,26 @@
-// Spiel Hangman – Woerterbuch - Gruppenarbeit Florian, Manuel, Maxi, Jacob
-import java.util.Random;
-public class Woerterbuch {
-// interne Konstanten für minimal/maximale Anzahl
-private static final int MIN_BUCHSTABEN = 2; // minimale Anzahl Buchstaben
-private static final int MAX_BUCHSTABEN = 3; // maximale Anzahl Buchstaben
-private int getZufallszahl(int min, int max) {
-// Zufallszahl im Bereich [min,max] generieren.
-// Zufallsgenerator abhängig von der Uhrzeit initialisieren.
-Random zufallsgenerator = new Random();
-zufallsgenerator.setSeed(System.currentTimeMillis());
-int zufallszahl = zufallsgenerator.nextInt((max - min) + 1) + min;
-return zufallszahl;
-}
-public String getZufallswort(int buchstaben)
-throws Exception {
-// Zufallswort mit Anzahl [buchstaben] generieren.
-// Fehler, wenn kein Wort gefunden werden konnte.
+// Spiel Hangman – Woerterbuch - Gruppenarbeit Florian, Manuel, Maxi, Jacob 
+import java.util.Random; 
+import java.lang.Exception; 
+public class Woerterbuch { 
+// Woerterbuch für Spiel Hangman ermittelt zufällige Begriffe 
 // https://www.wort-suchen.de/wortlisten/woerter-mit-2-buchstaben
-String zufallswort = null;
-int zufallszahl = getZufallszahl(1,9);
+ 
+public static final int MIN_BUCHSTABEN = 2; // minimale Anzahl Buchstaben 
+public static final int MAX_BUCHSTABEN = 3; // maximale Anzahl Buchstaben 
+private int getZufallszahl(int min, int max) { 
+// Zufallszahl im Bereich [min,max] generieren. 
+// Zufallsgenerator abhängig von der Uhrzeit initialisieren. 
+Random zufallsgenerator = new Random(); 
+zufallsgenerator.setSeed(System.currentTimeMillis()); 
+int zufallszahl = zufallsgenerator.nextInt((max - min) + 1) + min; 
+return zufallszahl; 
+} 
+public String getZufallswort(int buchstaben) 
+throws Exception { 
+// Zufallswort mit Anzahl [buchstaben] generieren. 
+// Fehler, wenn kein Wort gefunden werden konnte. 
+String zufallswort = null; 
+int zufallszahl = getZufallszahl(1,9); 
 switch(buchstaben) {
 case 0:
 case 1:
@@ -97,22 +99,20 @@ case 7: zufallswort = "boxclub"; break;
 case 8: zufallswort = "polizei"; break;
 default: zufallswort = "eckball"; break;
 }
-break;
-default:
-throw new Exception(
 
-"Kein Wort gefunden ("+MIN_BUCHSTABEN+".."
-+MAX_BUCHSTABEN+" Buchstaben)!");
 
+break; 
+default: 
+throw new Exception("Kein Wort gefunden!"); 
+} 
+return zufallswort; 
+} public String getZufallswort() 
+throws Exception { 
+// Zufallswort mit zufälliger Anzahl Buchstaben generieren. 
+// Fehler, wenn kein Wort gefunden werden konnte. 
+int zufallszahl = getZufallszahl(MIN_BUCHSTABEN,MAX_BUCHSTABEN); 
+return getZufallswort(zufallszahl); 
+} 
+ 
+ 
 }
-return zufallswort;
-}
-public String getZufallswort()
-throws Exception {
-// Zufallswort mit zufälliger Anzahl Buchstaben generieren.
-// Fehler, wenn kein Wort gefunden werden konnte.
-int zufallszahl = getZufallszahl(MIN_BUCHSTABEN,MAX_BUCHSTABEN);
-return getZufallswort(zufallszahl);
-}
-}
-
